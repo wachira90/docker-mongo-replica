@@ -15,3 +15,23 @@ cd docker-mongo-replica
 mkdir data
 sudo chmod -R 0777 data/
 ````
+
+## start 
+````
+docker-compose up -d && docker-compose logs -f
+````
+
+## command create user 
+````
+use admin
+
+db.createUser({
+    user: "root",
+    pwd: "example",
+    roles: [{
+        role: "userAdminAnyDatabase",
+        db: "admin"
+    }, "readWriteAnyDatabase"]
+})
+
+````
